@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +22,5 @@ Route::get('/status', function () {
     return response()->json(['status' => 'ok']);
 });
 
-Route::post('/event', [\App\Http\Controllers\EventController::class, 'bounce']);
+Route::post('/event', [\App\Http\Controllers\EventController::class, 'bounce'])->middleware([AuthMiddleware::class]);
 Route::get('/monarch', [\App\Http\Controllers\MonarchController::class, 'getName']);
