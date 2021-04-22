@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 class GameEventServiceProvider extends ServiceProvider
 {
 
-    public const TIME_THRESHOLD = 10;
+    public const TIME_THRESHOLD = 60;
 
     /**
      * Bounce an event
