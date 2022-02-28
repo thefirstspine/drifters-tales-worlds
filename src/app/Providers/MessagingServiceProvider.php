@@ -18,7 +18,7 @@ class MessagingServiceProvider extends ServiceProvider
         ]);
     }
 
-    public function sendMessage(array $to, string $subject, array $message)
+    public function sendMessage($to, string $subject, array $message)
     {
         try
         {

@@ -37,7 +37,7 @@ class EventController extends Controller
         if ($event->bounced === 1)
         {
             $messagingServiceProvider->sendMessage(
-                ['*'],
+                '*',
                 "DrifterTales:connectedworld:{$validated['name']}",
                 [
                     'user' => $request->attributes->get('user_id'),
