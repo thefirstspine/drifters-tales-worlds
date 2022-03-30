@@ -23,4 +23,5 @@ Route::get('/status', function () {
 });
 
 Route::post('/event', [\App\Http\Controllers\EventController::class, 'bounce'])->middleware([AuthMiddleware::class]);
+Route::post('/tipper', [\App\Http\Controllers\TipperController::class, 'addTipper']);
 Route::get('/monarch', [\App\Http\Controllers\MonarchController::class, 'getName']);

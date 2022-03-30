@@ -30,6 +30,13 @@ class AppServiceProvider extends ServiceProvider
                 return new MessagingServiceProvider($app);
             }
         );
+
+        $this->app->singleton(
+            TipperServiceProvider::class,
+            function (\Illuminate\Contracts\Foundation\Application $app) {
+                return new TipperServiceProvider($app);
+            }
+        );
     }
 
     /**
