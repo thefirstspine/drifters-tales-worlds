@@ -23,7 +23,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 # Install app
 COPY src /var/www
-RUN chown -R www-data:www-data /var/www/storage
 RUN composer install
 
-CMD apache2-foreground
+CMD chown -R www-data:www-data /var/www/storage &&\
+    chown -R www-data:www-data /var/www/bootstrap/cache &&\
+    php artisan config:cache &&\
+    php artisan route:cache &&\
+    php artisan view:cache &&\
+    apache2-foreground
